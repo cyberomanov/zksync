@@ -38,4 +38,3 @@ for element in result:
 
 with open('snapshot.md', 'a') as file:
     file.write(f'total_user: {total_user}.<br>total_zz: {total_zz}.')
-

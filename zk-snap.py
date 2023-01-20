@@ -37,4 +37,5 @@ for element in result:
             file.write('| ' + str(account_id) + ' | ' + str(trade_count) + ' | ' + str(zz_amount) + ' |\n')
 
 with open('snapshot.md', 'a') as file:
-    file.write(f'<br>total_user: {total_user}.<br>total_zz: {total_zz}.')
+    file.write(f'|---|---|---|\n'
+               f'| {total_user} | TOTAL | {total_zz}|')

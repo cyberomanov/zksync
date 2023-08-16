@@ -1,4 +1,5 @@
 import json
+from typing import Optional
 
 import requests
 from pydantic import BaseModel
@@ -6,7 +7,7 @@ from pydantic import BaseModel
 
 class MintResponse(BaseModel):
     success: bool
-    message: str
+    message: Optional[str]
 
 
 def get_response(address: str) -> MintResponse:
@@ -23,7 +24,9 @@ if __name__ == '__main__':
         if address:
             try:
                 response = get_response(address=address)
-                print(f'#{num + 1} | {address} | {response.success}, {response.message}')
+                if response.message:
+                    print(f'#{num + 1} | {address} | {response.success}, {response.message}')
+                else:
+                    print(f'#{num + 1} | {address} | {response.success}.')
             except Exception as e:
                 print(e.args)
-
